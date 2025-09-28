@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+        //НЕ работает
 int have_dublicate(int *array, int number, int position, int array_len)
 
     int main() {
