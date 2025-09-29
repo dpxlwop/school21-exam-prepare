@@ -15,12 +15,5 @@ int have_dublicate(int *array, int number, int position, int array_len)
     for (int i = 0; i < counter; i++) {
         if (have_dublicate(array, array[i], i, counter)) }
     for (int i = 0; i < n; i++) printf("%d ", result[i]);
-}
+}//делаем второй массив, проверяем каждый новый элемент на уникальность
 
-int have_dublicate(int *array, int number, int position, int array_len) {
-    int have_dublicate = 0;
-    for (int i = 0; i < array_len; i++) {
-        if (array[i] == number && i != position) have_dublicate = 1;
-    }
-    return have_dublicate;
-}
