@@ -3,6 +3,7 @@
 int main() {
     int number, max_number, devider = 10;   //devider - делитель, для выделения цифры из числа
     if (scanf("%d", &number) != 1) return printf("n/a");    //ввод с проверкой
+    if (number < 0) number*=-1;
     max_number = number % 10;   //получаем еденицы, считаем ее максимумом
     while (devider < number) {  //пока делитель меньше числа - идем в цикл
         if (number / devider % 10 > max_number) {   //выделение одной цифры из числа и проверка больше ли она, чем максимальная цифра
