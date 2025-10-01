@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 int main() {
-    int *arr = malloc(sizeof(int));     //объявляем массив
+    int *arr = malloc(sizeof(int));  // объявляем массив
     if (arr == NULL) return printf("n/a");
 
-    int n = 0;      //размер массива
-    if (scanf("%d", &arr[0]) != 1) {        
+    int n = 0;  // размер массива
+    if (scanf("%d", &arr[0]) != 1) {
         return printf("n/a");
     }
 
-    while (arr[n] != -1) {          //стандартный ввод с realloc
+    while (arr[n] != -1) {  // стандартный ввод с realloc
         n++;
         arr = realloc(arr, sizeof(int) * n + 1);
 
@@ -21,7 +21,7 @@ int main() {
         }
     }
 
-    for (int i = 0; i < n - 1; i++) {       //пузырьковый сорт
+    for (int i = 0; i < n - 1; i++) {  // пузырьковый сорт
         int temp = 0;
         for (int j = 0; j < n - 1; j++) {
             if (arr[j] > arr[j + 1]) {
@@ -35,13 +35,13 @@ int main() {
 
     int count = 0;
     for (int i = 0; i < n; i++) {
-        if (arr[i] == arr[i + 1]) {         //если одно число стоит рядом - пропускаем итерацию
+        if (arr[i] == arr[i + 1]) {  // если одно число стоит рядом - пропускаем итерацию
             continue;
         }
-        arr_2[count++] = arr[i];            //иначе - добавляем уникальное число в новый массив
+        arr_2[count++] = arr[i];  // иначе - добавляем уникальное число в новый массив
     }
 
-    for (int i = 0; i < count; i++) {       //вывод
+    for (int i = 0; i < count; i++) {  // вывод
         printf("%d", arr_2[i]);
         if (i != count - 1) printf(" ");
     }

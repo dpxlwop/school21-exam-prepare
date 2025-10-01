@@ -7,7 +7,7 @@ int main() {
 
     while ((string[strlen] = getchar()) != '\n')  // вводим строку
         strlen++;
-    getchar();  //берем еще один чар, что бы "съесть" лишний \n
+    getchar();  // берем еще один чар, что бы "съесть" лишний \n
     while ((str_to_delete[str2delete_len] = getchar()) != '\n')  // вводим строку, которую надо удалить
         str2delete_len++;
     int pos;
@@ -24,11 +24,12 @@ int main() {
     }
     int k = 0;
     for (int i = 0; i < strlen; i++) {
-        if (i == pos - 1 )
+        if (i == pos - 1)
             i += str2delete_len;
-        else{
+        else {
             new_string[k] = string[i];
-            k++;}
+            k++;
+        }
     }
     printf("%s", new_string);  // выводим строку
     return 0;
