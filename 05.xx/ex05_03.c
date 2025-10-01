@@ -4,7 +4,7 @@
 int main() {
     int *array = malloc(sizeof(int) * 2);
     int counter = 0;
-    if (scanf("%d", &array[0]) != 1) return printf("n/a");  // ввод размера массива
+    if (scanf("%d", &array[0]) != 1) return printf("n/a");  // ввод первого элемента
     while (array[counter] != -1) {
         counter++;
         array = realloc(array, sizeof(int) * (counter + 1));
