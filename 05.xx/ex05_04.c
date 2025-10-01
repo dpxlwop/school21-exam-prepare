@@ -2,15 +2,15 @@
 #include <stdlib.h>
 
 int main() {
-    int *arr = malloc(sizeof(int));  // объявляем массив
+    int *arr = malloc(sizeof(int));
     if (arr == NULL) return printf("n/a");
 
-    int n = 0;  // размер массива
+    int n = 0;
     if (scanf("%d", &arr[0]) != 1) {
         return printf("n/a");
     }
 
-    while (arr[n] != -1) {  // стандартный ввод с realloc
+    while (arr[n] != -1) {
         n++;
         arr = realloc(arr, sizeof(int) * n + 1);
 
@@ -21,32 +21,27 @@ int main() {
         }
     }
 
-    for (int i = 0; i < n - 1; i++) {  // пузырьковый сорт
-        int temp = 0;
-        for (int j = 0; j < n - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-    int *arr_2 = malloc(n * sizeof(int));
-
     int count = 0;
     for (int i = 0; i < n; i++) {
-        if (arr[i] == arr[i + 1]) {  // если одно число стоит рядом - пропускаем итерацию
-            continue;
+        int is_number = 0; // флаг проверки на то что число уже было в нашем массиве
+        for (int j = count - 1; j >= 0 && i != 0; j--) // проходимся по числам которые мы оставляем в массиве
+        {
+            if (arr[i] == arr[j]) // если число равно какому то числу в уже записанных в начале то поднимаем флаг
+            {
+                is_number = 1;
+            }
         }
-        arr_2[count++] = arr[i];  // иначе - добавляем уникальное число в новый массив
+        if (is_number != 1) // если флаг не поднят  то перезаписываем по индексу count наш массив заново с начала
+        {
+            arr[count++] = arr[i];
+        }
     }
 
-    for (int i = 0; i < count; i++) {  // вывод
-        printf("%d", arr_2[i]);
+    for (int i = 0; i < count; i++) {
+        printf("%d", arr[i]);
         if (i != count - 1) printf(" ");
     }
     free(arr);
-    free(arr_2);
 
     return 0;
 }
