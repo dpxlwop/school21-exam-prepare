@@ -31,6 +31,7 @@ int main() {
             k++;
         }
     }
+    new_string[k] = '\0';
     printf("%s", new_string);  // выводим строку
     return 0;
 }

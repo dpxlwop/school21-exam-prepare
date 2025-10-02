@@ -17,6 +17,7 @@ int main() {
             new_string[j++] = string[i];  // во всех остальных случаях - переносим символ
         i++;
     }
+    new_string[j] = '\0';
     printf("%s", new_string);  // выводим строку
     return 0;
 }
